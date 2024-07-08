@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokéDex Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <header class="bg-danger text-white py-3 shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="gaming.png" alt="Pokéball" width="30" height="30" class="me-2">
+                    <span class="h4 mb-0">PokéDex Pro</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Types</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        <section class="row mb-4">
+            <div class="col-md-8 offset-md-2">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search Pokémon">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row mb-4">
+            <div class="col-md-8 offset-md-2 d-flex justify-content-between align-items-center">
+                <h2 class="h4 mb-0">Pokémon List</h2>
+                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#filterModal">
+                    <i class="fas fa-filter me-2"></i>Filter
+                </button>
+            </div>
+        </section>
+
+        <section class="row" id="pokemon-list">
+            <!-- Pokemon cards will be dynamically added here -->
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card h-100 shadow-sm pokemon-card">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" class="card-img-top p-3" alt="Pikachu">
+                    <div class="card-body">
+                        <h5 class="card-title">Pikachu</h5>
+                        <p class="card-text"><span class="badge bg-warning text-dark me-1">Electric</span></p>
+                        <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#pokemonModal">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more Pokemon cards here -->
+        </section>
+
+        <nav aria-label="Pokemon navigation" class="my-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <!-- Pokemon Details Modal -->
+    <div class="modal fade" id="pokemonModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Pikachu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" class="img-fluid mb-3" alt="Pikachu">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Details</h4>
+                            <p><strong>Type:</strong> <span class="badge bg-warning text-dark">Electric</span></p>
+                            <p><strong>Abilities:</strong> Static, Lightning Rod</p>
+                            <h5>Stats:</h5>
+                            <ul class="list-unstyled">
+                                <li>HP: <div class="progress"><div class="progress-bar bg-success" style="width: 35%">35</div></div></li>
+                                <li>Attack: <div class="progress"><div class="progress-bar bg-danger" style="width: 55%">55</div></div></li>
+                                <li>Defense: <div class="progress"><div class="progress-bar bg-info" style="width: 40%">40</div></div></li>
+                                <li>Speed: <div class="progress"><div class="progress-bar bg-warning" style="width: 90%">90</div></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Modal -->
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Filter Pokémon</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="typeFilter" class="form-label">Type</label>
+                            <select class="form-select" id="typeFilter">
+                                <option selected>All Types</option>
+                                <option>Normal</option>
+                                <option>Fire</option>
+                                <option>Water</option>
+                                <option>Electric</option>
+                                <!-- Add more types -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="generationFilter" class="form-label">Generation</label>
+                            <select class="form-select" id="generationFilter">
+                                <option selected>All Generations</option>
+                                <option>Gen 1</option>
+                                <option>Gen 2</option>
+                                <option>Gen 3</option>
+                                <!-- Add more generations -->
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Apply Filters</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.pokemon-card {
+    transition: transform 0.2s;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-5px);
+}
+
+.pokemon-card .card-img-top {
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.progress {
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+.badge {
+    font-size: 0.8rem;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-body {
+    padding-top: 0;
+}
